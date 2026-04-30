@@ -1,0 +1,336 @@
+/* ─── Manifesto (same pattern as Home) ──────────────────────── */
+.about-manifesto {
+  padding: clamp(24px, 4vw, 48px) 0;
+  text-align: center;
+  background: var(--cream);
+}
+
+.about-manifesto-rule {
+  display: block;
+  width: 1px;
+  height: 44px;
+  background: var(--rose-gold);
+  margin: 0 auto 24px;
+}
+
+.about-manifesto-text {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 2vw + 0.8rem, 2.3rem);
+  line-height: 1.35;
+  color: var(--heading);
+  max-width: 22ch;
+  margin: 0 auto;
+  letter-spacing: -0.01em;
+}
+
+.about-manifesto-text em {
+  font-style: italic;
+  color: var(--rose-gold-deep);
+}
+
+.about-manifesto-attribution {
+  display: block;
+  margin-top: 24px;
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--rose-gold-deep);
+  font-weight: 500;
+}
+
+/* ─── Story editorial split ─────────────────────────────────── */
+.about-story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.about-story-media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--blush);
+}
+
+.about-story-media::after {
+  content: '';
+  position: absolute;
+  right: -18px;
+  bottom: -18px;
+  width: 140px;
+  aspect-ratio: 1;
+  border: 1px solid var(--rose-gold);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.about-story-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-story-text h2 {
+  margin: 8px 0 20px;
+}
+
+.about-story-text p {
+  color: var(--text);
+  max-width: 52ch;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.about-story-signoff {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--rose-gold-deep);
+  margin-top: 16px;
+}
+
+.hero-italic {
+  font-style: italic;
+  color: var(--rose-gold);
+}
+
+@media (max-width: 900px) {
+  .about-story-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .about-story-media {
+    max-width: 420px;
+    margin: 0 auto;
+    aspect-ratio: 4 / 3;
+  }
+  .about-story-media::after {
+    display: none;
+  }
+}
+
+/* ─── Stats strip ──────────────────────────────────────────── */
+.about-stats {
+  padding: clamp(24px, 4vw, 48px) 0;
+  background: var(--plum);
+  color: var(--cream);
+}
+
+.about-stats-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.about-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+  padding-left: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.about-stat:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+.about-stat-value {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(2rem, 2.5vw + 1rem, 3.2rem);
+  line-height: 1;
+  color: var(--rose-gold);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.about-stat-label {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .about-stats-inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 24px;
+  }
+  .about-stat:nth-child(3) {
+    border-left: none;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .about-stats-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .about-stat {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 20px;
+  }
+  .about-stat:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+}
+
+/* ─── Values ───────────────────────────────────────────────── */
+.about-values-head {
+  max-width: 620px;
+  margin: 0 0 32px;
+  text-align: left;
+}
+
+.about-values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.about-value {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px 26px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.about-value:hover {
+  border-color: var(--rose-gold);
+  transform: translateY(-4px);
+}
+
+.about-value-index {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  color: var(--rose-gold-deep);
+  font-variant-numeric: tabular-nums;
+}
+
+.about-value-rule {
+  width: 28px;
+  height: 1px;
+  background: var(--rose-gold);
+}
+
+.about-value h3 {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  margin: 0;
+  color: var(--heading);
+  letter-spacing: -0.01em;
+}
+
+.about-value p {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .about-values-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* ─── Standards editorial list ─────────────────────────────── */
+.about-standards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.about-standards-head h2 {
+  margin: 8px 0 18px;
+}
+
+.about-standards-head p {
+  color: var(--text);
+  max-width: 36ch;
+  margin: 0 0 24px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.about-standards-link {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--plum);
+  font-weight: 500;
+  border-bottom: 1px solid var(--plum);
+  padding-bottom: 4px;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.about-standards-link:hover {
+  color: var(--rose-gold-deep);
+  border-bottom-color: var(--rose-gold-deep);
+  transform: translateX(4px);
+}
+
+.about-standards-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+
+.about-standards-list li {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-standards-list h3 {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  margin: 0 0 8px;
+  color: var(--heading);
+  letter-spacing: -0.01em;
+}
+
+.about-standards-list p {
+  margin: 0;
+  color: var(--text);
+  max-width: 60ch;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .about-standards-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* ─── CTA styling already shared from Home.css via .cta-band ── */
+.about-cta .cta-band-actions .btn-ghost {
+  color: var(--rose-gold);
+}
+.about-cta .cta-band-actions .btn-ghost:hover {
+  color: var(--cream);
+}

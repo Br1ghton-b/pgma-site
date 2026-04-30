@@ -1,0 +1,37 @@
+.education-guide {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.guide-step {
+  margin-bottom: 3rem;
+  padding-left: 2rem;
+  border-left: 2px solid var(--rose-gold);
+}
+
+.step-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--rose-gold);
+}
+
+.guide-dos-donts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 4rem;
+  padding: 2rem;
+  background: var(--cream-deep);
+  border-radius: var(--radius-md);
+}
+
+.do h3, .dont h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.do ul, .dont ul {
+  list-style: none;
+  padding: 0;
+}

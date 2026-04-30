@@ -1,0 +1,377 @@
+.gifting-bundles {
+  /* .section class handles vertical padding. */
+}
+
+.gifting-intro {
+  max-width: 620px;
+  margin: 0 0 40px;
+}
+
+.gifting-intro p {
+  color: var(--text);
+  margin: 8px 0 0;
+}
+
+.gifting-bundle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.bundle-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.bundle-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.bundle-media {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--blush);
+}
+
+.bundle-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.bundle-card:hover .bundle-media img {
+  transform: scale(1.04);
+}
+
+.bundle-body {
+  padding: 24px 22px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1 1 auto;
+}
+
+.bundle-body h3 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.bundle-blurb {
+  color: var(--text);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.bundle-services {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bundle-services li {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--heading);
+  font-size: 0.98rem;
+}
+
+.bundle-services li::before {
+  content: '+ ';
+  color: var(--rose-gold-deep);
+  font-style: normal;
+}
+
+.bundle-foot {
+  margin-top: auto;
+  padding-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.bundle-price {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  color: var(--plum);
+  font-variant-numeric: tabular-nums;
+}
+
+.bundle-buy {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--plum);
+  padding: 8px 12px;
+  border-bottom: 1.5px solid var(--plum);
+  transition: color 0.15s ease, border-color 0.15s ease, transform 0.2s ease;
+}
+
+.bundle-buy:hover {
+  color: var(--rose-gold-deep);
+  border-bottom-color: var(--rose-gold-deep);
+  transform: translateX(2px);
+}
+
+@media (max-width: 900px) {
+  .gifting-bundle-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gifting-bundle-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Voucher */
+.gifting-voucher-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.gifting-voucher-grid p {
+  color: var(--text);
+}
+
+.gifting-voucher-steps {
+  list-style: none;
+  padding: 0;
+  margin: 22px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gifting-voucher-steps li {
+  color: var(--heading);
+}
+
+.gifting-voucher-steps strong {
+  color: var(--rose-gold-deep);
+  margin-right: 6px;
+}
+
+.gifting-voucher-form {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.gifting-voucher-form fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.gifting-voucher-form legend {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rose-gold-deep);
+  padding: 0;
+  margin: 0 0 4px;
+}
+
+.gifting-voucher-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gifting-voucher-form label > span {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.gifting-voucher-form input,
+.gifting-voucher-form textarea {
+  font: inherit;
+  font-size: 1rem;
+  color: var(--heading);
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 12px 14px;
+  resize: vertical;
+}
+
+.gifting-voucher-form input:focus,
+.gifting-voucher-form textarea:focus {
+  outline: none;
+  border-color: var(--plum);
+  box-shadow: 0 0 0 3px rgba(236, 65, 133, 0.18);
+}
+
+.gifting-amount-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.gifting-amount {
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--heading);
+  cursor: pointer;
+  font-variant-numeric: tabular-nums;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.gifting-amount:hover {
+  border-color: var(--plum);
+}
+
+.gifting-amount-active {
+  background: var(--plum);
+  color: var(--cream);
+  border-color: var(--plum);
+}
+
+.gifting-custom-amount {
+  margin-top: 6px;
+}
+
+/* Preview */
+.gifting-preview {
+  background: linear-gradient(
+    135deg,
+    var(--blush) 0%,
+    var(--cream) 60%,
+    var(--blush) 100%
+  );
+  border: 1px solid var(--rose-gold);
+  border-radius: 4px;
+  padding: 28px 26px;
+  text-align: center;
+}
+
+.gifting-preview-eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--rose-gold-deep);
+  font-weight: 500;
+}
+
+.gifting-preview-to {
+  margin: 14px 0 6px;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.gifting-preview-amount {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 2.4rem;
+  color: var(--plum);
+  margin: 0 0 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.gifting-preview-message {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--heading);
+  margin: 0;
+  font-size: 1rem;
+  max-width: 46ch;
+  margin: 0 auto;
+}
+
+.gifting-preview-from {
+  margin: 12px 0 0;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+
+.gifting-preview-code {
+  margin: 14px 0 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rose-gold-deep);
+  font-family: var(--sans);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.gifting-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.gifting-actions .btn {
+  flex: 1 1 auto;
+  min-width: 180px;
+  justify-content: center;
+}
+
+.gifting-disclaimer {
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  margin: 0;
+}
+
+.gifting-error {
+  color: var(--rose-gold-deep);
+  font-size: 0.9rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.gifting-sent {
+  color: var(--rose-gold-deep);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+  .gifting-voucher-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* CTA */
+.gifting-cta-inner {
+  max-width: 620px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.gifting-cta-inner p {
+  color: var(--text);
+  margin: 10px 0 24px;
+}
