@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import PageHero from '../components/PageHero'
@@ -17,38 +17,8 @@ import {
   occasionPresets,
   aftercareByCategory,
   rebookWeeksByCategory,
-  Category,
-  Service,
-  AddOn,
 } from '../data/services'
 import './Booking.css'
-
-interface Selection {
-  categoryId: string
-  categoryName: string
-  name: string
-  price: number
-  note?: string
-  durationMin?: number
-  addOns: AddOn[]
-  selectedAddOnIds: string[]
-}
-
-interface BookingForm {
-  name: string
-  phone: string
-  email: string
-  date: string
-  time: string
-  notes: string
-  suburb: string
-  partySize: number
-}
-
-interface PickerState {
-  categoryId: string
-  service: string
-}
 
 function todayIso() {
   const d = new Date()
@@ -58,7 +28,7 @@ function todayIso() {
   return `${y}-${m}-${day}`
 }
 
-function makeSelection(category: Category, service: Service): Selection {
+function makeSelection(category, service) {
   return {
     categoryId: category.id,
     categoryName: category.name,
@@ -76,7 +46,7 @@ export default function Booking() {
   const minDate = todayIso()
 
   // Pre-fill the cart from ?service=&category= OR ?preset=<id> once on mount.
-  const [selections, setSelections] = useState<Selection[]>(() => {
+  const [selections, setSelections] = useState(() => {
     const presetId = params.get('preset')
     if (presetId) {
       const preset = occasionPresets.find((p) => p.id === presetId)
@@ -87,7 +57,7 @@ export default function Booking() {
             const svc = cat?.services.find((s) => s.name === name)
             return cat && svc ? makeSelection(cat, svc) : null
           })
-          .filter((s): s is Selection => s !== null)
+          .filter(Boolean)
       }
     }
     const categoryId = params.get('category')
@@ -99,8 +69,8 @@ export default function Booking() {
     if (!svc) return []
     return [makeSelection(cat, svc)]
   })
-  const [picker, setPicker] = useState<PickerState>({ categoryId: '', service: '' })
-  const [form, setForm] = useState<BookingForm>({
+  const [picker, setPicker] = useState({ categoryId: '', service: '' })
+  const [form, setForm] = useState({
     name: '',
     phone: '',
     email: '',
@@ -164,7 +134,7 @@ export default function Booking() {
         weeks: rebookWeeksByCategory[s.categoryId],
         categoryName: s.categoryName,
       }))
-      .filter((x): x is { weeks: number; categoryName: string } => x.weeks != null)
+      .filter((x) => x.weeks != null)
     if (!others.length) return null
     return others.reduce((min, x) =>
       x.weeks < min.weeks ? x : min
@@ -188,11 +158,11 @@ export default function Booking() {
     setError('')
   }
 
-  const removeSelection = (idx: number) => {
+  const removeSelection = (idx) => {
     setSelections((prev) => prev.filter((_, i) => i !== idx))
   }
 
-  const toggleAddOn = (selectionIdx: number, addOnId: string) => {
+  const toggleAddOn = (selectionIdx, addOnId) => {
     const next = selections.map((item, i) => {
       if (i !== selectionIdx) return item
       const ids = item.selectedAddOnIds || []
@@ -208,14 +178,12 @@ export default function Booking() {
     }
   }
 
-  const updateForm = (field: keyof BookingForm) => (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => {
+  const updateForm = (field) => (e) => {
     const value = field === 'partySize' ? Number(e.target.value) : e.target.value
     setForm((f) => ({ ...f, [field]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     if (selections.length === 0) {
       setError('Please add at least one treatment.')
@@ -224,7 +192,7 @@ export default function Booking() {
     const treatmentLines = selections.map((s) => {
       const price = itemPrice(s)
       const duration = itemDuration(s)
-      const addOnLabels = itemSelectedAddOns(s).map((a: AddOn) => a.label)
+      const addOnLabels = itemSelectedAddOns(s).map((a) => a.label)
       const addOnBit = addOnLabels.length
         ? ` (with ${addOnLabels.join(', ')})`
         : ''

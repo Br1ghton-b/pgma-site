@@ -1,18 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import { img } from '../data/services'
 import './ComparisonSlider.css'
 
-interface ComparisonSliderProps {
-  beforeId: string
-  afterId: string
-  title: string
-}
-
-export default function ComparisonSlider({ beforeId, afterId, title }: ComparisonSliderProps) {
+export default function ComparisonSlider({ beforeId, afterId, title }) {
   const [position, setPosition] = useState(50)
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef(null)
 
-  const handleMove = (e: React.MouseEvent | React.TouchEvent | any) => {
+  const handleMove = (e) => {
     if (!containerRef.current) return
     const rect = containerRef.current.getBoundingClientRect()
     const x = 'touches' in e ? e.touches[0].clientX : e.clientX
@@ -24,7 +18,7 @@ export default function ComparisonSlider({ beforeId, afterId, title }: Compariso
   return (
     <div className="comparison-slider-wrap">
       <h3>{title}</h3>
-      <div 
+      <div
         ref={containerRef}
         className="comparison-slider"
         onMouseMove={handleMove}
@@ -34,15 +28,15 @@ export default function ComparisonSlider({ beforeId, afterId, title }: Compariso
           <img src={img(afterId, { w: 1000 })} alt="After" />
           <span className="label after-label">After</span>
         </div>
-        <div 
-          className="image-before" 
+        <div
+          className="image-before"
           style={{ width: `${position}%` }}
         >
           <img src={img(beforeId, { w: 1000 })} alt="Before" />
           <span className="label before-label">Before</span>
         </div>
-        <div 
-          className="slider-handle" 
+        <div
+          className="slider-handle"
           style={{ left: `${position}%` }}
         >
           <div className="handle-line"></div>

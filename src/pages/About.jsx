@@ -9,22 +9,7 @@ import {
 } from '../data/services'
 import './About.css'
 
-interface Stat {
-  value: string | number
-  label: string
-}
-
-interface Value {
-  title: string
-  body: string
-}
-
-interface Standard {
-  heading: string
-  body: string
-}
-
-const stats: Stat[] = [
+const stats = [
   { value: 'Mobile', label: 'From your home' },
   {
     value: categories.length,
@@ -37,7 +22,7 @@ const stats: Stat[] = [
   { value: '< 1h', label: 'Average reply time' },
 ]
 
-const values: Value[] = [
+const values = [
   {
     title: 'Grace in every detail',
     body: 'From setup to signature, each session is curated — not rushed. Quiet hands, calm presence, careful craft.',
@@ -52,7 +37,7 @@ const values: Value[] = [
   },
 ]
 
-const standards: Standard[] = [
+const standards = [
   {
     heading: 'Single-use, sterile',
     body: 'Needling cartridges, peel applicators, and wax sticks are single-use. All reusable tools are sterilised between bookings.',

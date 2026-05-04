@@ -2,15 +2,6 @@ import { motion } from 'framer-motion'
 import { img } from '../data/services'
 import './PageHero.css'
 
-interface PageHeroProps {
-  photoId: string | number
-  eyebrow?: string
-  title: string
-  subtitle?: string
-  align?: 'left' | 'center'
-  size?: 'sm' | 'md' | 'lg'
-}
-
 export default function PageHero({
   photoId,
   eyebrow,
@@ -18,7 +9,7 @@ export default function PageHero({
   subtitle,
   align = 'left',
   size = 'md',
-}: PageHeroProps) {
+}) {
   return (
     <section
       className={`page-hero page-hero-${size} page-hero-${align}`}

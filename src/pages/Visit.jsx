@@ -6,17 +6,7 @@ import TravelMap from '../components/TravelMap'
 import { pageHeroPhotos } from '../data/services'
 import './Visit.css'
 
-interface Prep {
-  title: string
-  body: string
-}
-
-interface FAQItem {
-  q: string
-  body: string
-}
-
-const prep: Prep[] = [
+const prep = [
   {
     title: 'A clean, well-lit space',
     body: "About 2 m × 2 m of space. Any quiet room works — we're not precious about setup.",
@@ -35,14 +25,14 @@ const prep: Prep[] = [
   },
 ]
 
-const hygiene: string[] = [
+const hygiene = [
   'Hands sanitised on arrival and between treatments.',
   'Single-use needling cartridges, peel applicators, and wax sticks.',
   'Fresh linens per client — washed with hypoallergenic detergent.',
   'All tools sterilised between bookings, sharps disposed per protocol.',
 ]
 
-const faq: FAQItem[] = [
+const faq = [
   {
     q: 'Do I need to provide anything?',
     body: 'No — we bring the complete studio: bed, linens, towels, products, music, warm blankets.',

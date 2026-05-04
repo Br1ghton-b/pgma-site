@@ -1,14 +1,8 @@
 import { useState } from 'react'
-import { FAQ } from '../data/services'
 import './FAQAccordion.css'
 
-interface FAQAccordionProps {
-  items: FAQ[]
-  idPrefix?: string
-}
-
-export default function FAQAccordion({ items, idPrefix = 'faq' }: FAQAccordionProps) {
-  const [open, setOpen] = useState<number | null>(null)
+export default function FAQAccordion({ items, idPrefix = 'faq' }) {
+  const [open, setOpen] = useState(null)
 
   if (!items || items.length === 0) return null
 

@@ -4,17 +4,7 @@ import PageHero from '../components/PageHero'
 import { img, contactPhotoId, pageHeroPhotos } from '../data/services'
 import './Contact.css'
 
-interface Channel {
-  id: string
-  title: string
-  subtitle: string
-  detail: string
-  href: string
-  cta: string
-  external?: boolean
-}
-
-const channels: Channel[] = [
+const channels = [
   {
     id: 'whatsapp',
     title: 'WhatsApp',

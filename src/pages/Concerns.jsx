@@ -41,7 +41,7 @@ const steps = [
 
 export default function Concerns() {
   const [activeStep, setActiveStep] = useState(0)
-  const [answers, setAnswers] = useState<Record<string, string>>({})
+  const [answers, setAnswers] = useState({})
   const [quizFinished, setQuizFinished] = useState(false)
 
   const flatServices = useMemo(
@@ -56,7 +56,7 @@ export default function Concerns() {
     []
   )
 
-  const handleAnswer = (stepId: string, value: string) => {
+  const handleAnswer = (stepId, value) => {
     setAnswers(prev => ({ ...prev, [stepId]: value }))
     if (activeStep < steps.length - 1) {
       setActiveStep(prev => prev + 1)
@@ -72,7 +72,7 @@ export default function Concerns() {
     
     return mainConcern.services
       .map(name => flatServices.find(s => s.name === name))
-      .filter((s): s is NonNullable<typeof s> => !!s)
+      .filter(Boolean)
   }, [quizFinished, answers, flatServices])
 
   const resetQuiz = () => {

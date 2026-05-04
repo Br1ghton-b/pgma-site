@@ -4,30 +4,24 @@ import {
   formatPrice,
   formatDuration,
   img,
-  Service
 } from '../data/services'
 import './ServiceModal.css'
 
-interface ServiceModalProps {
-  service: Service | null
-  onClose: () => void
-}
-
-export default function ServiceModal({ service, onClose }: ServiceModalProps) {
-  const closeRef = useRef<HTMLButtonElement>(null)
-  const dialogRef = useRef<HTMLDivElement>(null)
-  const previousFocusRef = useRef<HTMLElement | null>(null)
+export default function ServiceModal({ service, onClose }) {
+  const closeRef = useRef(null)
+  const dialogRef = useRef(null)
+  const previousFocusRef = useRef(null)
 
   useEffect(() => {
     if (!service) return undefined
 
-    previousFocusRef.current = document.activeElement as HTMLElement
+    previousFocusRef.current = document.activeElement
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
 
     const t = setTimeout(() => closeRef.current?.focus(), 0)
 
-    const onKey = (e: KeyboardEvent) => {
+    const onKey = (e) => {
       if (e.key === 'Escape') {
         e.stopPropagation()
         onClose()
@@ -36,7 +30,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
       if (e.key === 'Tab' && dialogRef.current) {
         const focusables = dialogRef.current.querySelectorAll(
           'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
-        ) as NodeListOf<HTMLElement>
+        )
         if (focusables.length === 0) return
         const first = focusables[0]
         const last = focusables[focusables.length - 1]
@@ -59,8 +53,6 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
   }, [service, onClose])
 
   if (!service) return null
-
-  const svc = service as any;
 
   return (
     <div
@@ -93,7 +85,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
             loading="eager"
             decoding="async"
           />
-          <span className="service-modal-cat">{svc.categoryName || 'Service'}</span>
+          <span className="service-modal-cat">{service.categoryName || 'Service'}</span>
           {service.durationMin ? (
             <span className="service-modal-duration">
               {formatDuration(service.durationMin)}
@@ -138,7 +130,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
             ) : null}
             <div>
               <dt>Category</dt>
-              <dd>{svc.categoryName || 'General'}</dd>
+              <dd>{service.categoryName || 'General'}</dd>
             </div>
           </dl>
 
@@ -167,7 +159,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
             <Link
               to={`/booking?service=${encodeURIComponent(
                 service.name
-              )}&category=${encodeURIComponent(svc.categoryId || 'general')}`}
+              )}&category=${encodeURIComponent(service.categoryId || 'general')}`}
               className="btn btn-primary"
               onClick={onClose}
             >

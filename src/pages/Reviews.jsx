@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import PageHero from '../components/PageHero'
@@ -11,40 +11,7 @@ import {
 } from '../data/reviewsStore'
 import './Reviews.css'
 
-interface ReviewComment {
-  id: string
-  name: string
-  body: string
-  date: string
-}
-
-interface Review {
-  id: string
-  name: string
-  suburb: string | null
-  service: string | null
-  rating: number
-  body: string
-  date: string
-  likes: number
-  likedByMe: boolean
-  comments: ReviewComment[]
-}
-
-interface ReviewForm {
-  name: string
-  suburb: string
-  service: string
-  rating: number
-  body: string
-}
-
-interface CommentForm {
-  name: string
-  body: string
-}
-
-function Stars({ n }: { n: number }) {
+function Stars({ n }) {
   const full = Math.round(n)
   return (
     <span className="stars" aria-label={`${n} out of 5`}>
@@ -61,7 +28,7 @@ function Stars({ n }: { n: number }) {
   )
 }
 
-function HeartIcon({ filled }: { filled: boolean }) {
+function HeartIcon({ filled }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -81,7 +48,7 @@ function HeartIcon({ filled }: { filled: boolean }) {
   )
 }
 
-const initialForm: ReviewForm = {
+const initialForm = {
   name: '',
   suburb: '',
   service: '',
@@ -90,23 +57,22 @@ const initialForm: ReviewForm = {
 }
 
 export default function Reviews() {
-  const [reviews, setReviews] = useState<Review[]>(() => loadReviews())
-  const [form, setForm] = useState<ReviewForm>(initialForm)
+  const [reviews, setReviews] = useState(() => loadReviews())
+  const [form, setForm] = useState(initialForm)
   const [submitError, setSubmitError] = useState('')
   const [submitMessage, setSubmitMessage] = useState('')
-  const [openComments, setOpenComments] = useState<string | null>(null) // review id or null
-  const [commentForm, setCommentForm] = useState<CommentForm>({ name: '', body: '' })
+  const [openComments, setOpenComments] = useState(null) // review id or null
+  const [commentForm, setCommentForm] = useState({ name: '', body: '' })
   const [commentError, setCommentError] = useState('')
 
   const serviceNames = categories.flatMap((c) =>
     c.services.map((s) => s.name)
   )
 
-  const update = (field: keyof ReviewForm) => (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => setForm((f) => ({ ...f, [field]: e.target.value }))
+  const update = (field) => (e) =>
+    setForm((f) => ({ ...f, [field]: e.target.value }))
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     setSubmitError('')
     try {
@@ -120,30 +86,30 @@ export default function Reviews() {
           .getElementById('reviews-list')
           ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
       }, 100)
-    } catch (err: any) {
+    } catch (err) {
       setSubmitError(err.message || 'Something went wrong — please retry.')
     }
   }
 
-  const handleLike = (reviewId: string) => {
+  const handleLike = (reviewId) => {
     toggleLike(reviewId)
     setReviews(loadReviews())
   }
 
-  const handleOpenComments = (reviewId: string) => {
+  const handleOpenComments = (reviewId) => {
     setOpenComments(openComments === reviewId ? null : reviewId)
     setCommentForm({ name: '', body: '' })
     setCommentError('')
   }
 
-  const handleCommentSubmit = (reviewId: string) => (e: React.FormEvent) => {
+  const handleCommentSubmit = (reviewId) => (e) => {
     e.preventDefault()
     setCommentError('')
     try {
       addComment(reviewId, commentForm)
       setReviews(loadReviews())
       setCommentForm({ name: '', body: '' })
-    } catch (err: any) {
+    } catch (err) {
       setCommentError(err.message || 'Could not post comment.')
     }
   }
