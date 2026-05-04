@@ -119,6 +119,55 @@ export default function About() {
         </div>
       </section>
 
+      {/* Founder */}
+      <section className="section section-alt about-founder">
+        <div className="container about-founder-grid">
+          <div className="about-founder-media">
+            <img
+              src="/assets/founder-marcia.jpg"
+              alt="Marcia Bila-Babuyile, Founder of Purely Graced Aesthetics"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div className="about-founder-text">
+            <span className="eyebrow">Meet the founder</span>
+            <h2>
+              Marcia
+              <span className="hero-italic"> Bila-Babuyile.</span>
+            </h2>
+            <p className="about-founder-role">
+              Somatologist &amp; Aesthetician · 8+ years clinical experience
+            </p>
+            <p>
+              Marcia founded Purely Graced Aesthetics to deliver
+              personalised, science-backed treatments that enhance natural
+              beauty and promote long-term skin health — without the
+              pressure of a salon waiting room.
+            </p>
+            <p>
+              She also leads at <strong>W.ink Beauty Salon &amp; Spa</strong>,
+              the in-house practice at Madge Wallace International College
+              of Skincare &amp; Body Therapy, where she oversees premium
+              services from bespoke facials and chemical peels to holistic
+              aromatherapy and body treatments.
+            </p>
+            <p>
+              Trained in health sciences at the Tshwane University of
+              Technology and aligned with ITEC and CIDESCO global standards,
+              her practice pairs clinical precision with the calm of a
+              private spa.
+            </p>
+            <ul className="about-founder-credentials">
+              <li>ITEC certified</li>
+              <li>CIDESCO accredited</li>
+              <li>Somatology — TUT</li>
+              <li>Lead Aesthetician, W.ink Beauty Salon &amp; Spa</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* Stats strip */}
       <section className="about-stats">
         <div className="container about-stats-inner">
