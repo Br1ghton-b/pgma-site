@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import PageHero from '../components/PageHero'
 import FAQAccordion from '../components/FAQAccordion'
 import ServiceModal from '../components/ServiceModal'
@@ -12,7 +13,6 @@ import {
   formatDuration,
   img,
   pageHeroPhotos,
-  Service
 } from '../data/services'
 import './Services.css'
 
@@ -20,7 +20,7 @@ export default function Services() {
   const [active, setActive] = useState('all')
   const [search, setSearch] = useState('')
   const [maxPrice, setMaxPrice] = useState(1000)
-  const [modalService, setModalService] = useState<Service | null>(null)
+  const [modalService, setModalService] = useState(null)
 
   const services = useMemo(() => {
     const list = allServices() || []
@@ -37,6 +37,18 @@ export default function Services() {
 
   return (
     <>
+      <Helmet>
+        <title>Services & Pricing | Mobile Beauty in Johannesburg | PGA</title>
+        <meta
+          name="description"
+          content="Full menu of mobile facials, microneedling, peels, massages, waxing, nails and make-up — with transparent ZAR pricing. Booked to your door across Roodepoort, Randburg and Greater Johannesburg."
+        />
+        <link rel="canonical" href="https://pgma.co.za/services" />
+        <meta property="og:title" content="Services & Pricing | Purely Graced Aesthetics" />
+        <meta property="og:description" content="Mobile facials, aesthetics, massage, waxing, nails and make-up — transparent pricing, booked to your door." />
+        <meta property="og:url" content="https://pgma.co.za/services" />
+      </Helmet>
+
       <PageHero
         photoId={pageHeroPhotos.services}
         eyebrow="The menu"
@@ -165,7 +177,7 @@ export default function Services() {
                     <Link
                       to={`/booking?service=${encodeURIComponent(
                         s.name
-                      )}&category=${encodeURIComponent(s.categoryId)}`}
+                      )}&category=${encodeURIComponent(s.categoryId || '')}`}
                       className="shop-card-book"
                       onClick={(e) => e.stopPropagation()}
                     >

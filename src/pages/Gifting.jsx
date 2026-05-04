@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import PageHero from '../components/PageHero'
@@ -10,19 +10,6 @@ import {
   pageHeroPhotos,
 } from '../data/services'
 import './Gifting.css'
-
-interface Voucher {
-  amount: number
-  customAmount: string
-  recipient: string
-  message: string
-  from: string
-}
-
-interface PdfState {
-  loading: boolean
-  error: string
-}
 
 const AMOUNTS = [250, 500, 750, 1000, 1500]
 
@@ -42,7 +29,7 @@ function makeVoucherCode() {
 }
 
 export default function Gifting() {
-  const [voucher, setVoucher] = useState<Voucher>({
+  const [voucher, setVoucher] = useState({
     amount: 500,
     customAmount: '',
     recipient: '',
@@ -51,17 +38,16 @@ export default function Gifting() {
   })
   const [code] = useState(() => makeVoucherCode())
   const [sent, setSent] = useState(false)
-  const [pdfState, setPdfState] = useState<PdfState>({ loading: false, error: '' })
+  const [pdfState, setPdfState] = useState({ loading: false, error: '' })
 
-  const update = (field: keyof Voucher) => (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => setVoucher((v) => ({ ...v, [field]: e.target.value }))
+  const update = (field) => (e) =>
+    setVoucher((v) => ({ ...v, [field]: e.target.value }))
 
   const amount = voucher.customAmount
     ? Number(voucher.customAmount) || 0
     : voucher.amount
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     const lines = [
       `Gift voucher order — Purely Graced Aesthetics`,

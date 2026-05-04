@@ -1,21 +1,16 @@
 import WhatsappIcon from './WhatsappIcon'
-import Chatbot from './Chatbot'
 import './CommunicationWidgets.css'
 
 export default function CommunicationWidgets() {
   return (
-    <>
-      <a 
-        href="https://wa.me/27635149482" 
-        target="_blank" 
-        rel="noreferrer" 
-        className="whatsapp-widget"
-        aria-label="Chat on WhatsApp"
-      >
-        <WhatsappIcon />
-      </a>
-
-      <Chatbot />
-    </>
+    <a
+      href="https://wa.me/27635149482"
+      target="_blank"
+      rel="noreferrer"
+      className="whatsapp-widget"
+      aria-label="Chat on WhatsApp"
+    >
+      <WhatsappIcon />
+    </a>
   )
 }

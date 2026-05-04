@@ -66,13 +66,60 @@ export default function Home() {
   )
   const signatureServices = SIGNATURE_NAMES.map((n) =>
     flatServices.find((s) => s.name === n)
-  ).filter((s): s is NonNullable<typeof s> => !!s)
+  ).filter(Boolean)
 
   return (
     <>
       <Helmet>
         <title>Purely Graced Aesthetics | Mobile Beauty & Aesthetics Johannesburg</title>
         <meta name="description" content="Professional facials, microneedling, massages, and makeup delivered to your door in Roodepoort, Randburg, and Greater Johannesburg." />
+        <link rel="canonical" href="https://pgma.co.za/" />
+        <meta property="og:title" content="Purely Graced Aesthetics | Mobile Beauty in Johannesburg" />
+        <meta property="og:description" content="Professional facials, microneedling, massages, and make-up delivered to your door in Greater Johannesburg." />
+        <meta property="og:url" content="https://pgma.co.za/" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'HealthAndBeautyBusiness',
+            name: 'Purely Graced Aesthetics',
+            alternateName: 'PGA',
+            url: 'https://pgma.co.za/',
+            telephone: '+27635149482',
+            image: 'https://pgma.co.za/assets/home-hero.png',
+            priceRange: 'R50–R600',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: '63 Copenhagen Cres',
+              addressLocality: 'Roodepoort',
+              addressRegion: 'Gauteng',
+              postalCode: '2188',
+              addressCountry: 'ZA',
+            },
+            areaServed: [
+              'Roodepoort',
+              'Randburg',
+              'Northcliff',
+              'Florida',
+              'Honeydew',
+              'Krugersdorp',
+              'Greater Johannesburg',
+            ],
+            sameAs: [
+              'https://www.instagram.com/purely_graced_aesthetics/',
+              'https://www.facebook.com/profile.php?id=61572665586943',
+              'https://take.app/pgma',
+            ],
+            openingHoursSpecification: [
+              {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+                opens: '09:00',
+                closes: '18:00',
+              },
+            ],
+            slogan: 'Refreshed • Relaxed • Rejuvenated',
+          })}
+        </script>
       </Helmet>
 
       {/* Hero — full-bleed, editorial */}

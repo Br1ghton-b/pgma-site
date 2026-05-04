@@ -1,11 +1,6 @@
 import './Logo.css'
 
-interface LogoProps {
-  variant?: 'dark' | 'light'
-  compact?: boolean
-}
-
-export default function Logo({ variant = 'dark', compact = false }: LogoProps) {
+export default function Logo({ variant = 'dark', compact = false }) {
   const toneClass = variant === 'light' ? 'logo-light' : ''
 
   if (compact) {
