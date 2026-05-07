@@ -73,19 +73,19 @@ export default function Home() {
       <Helmet>
         <title>Purely Graced Aesthetics | Mobile Beauty & Aesthetics Johannesburg</title>
         <meta name="description" content="Professional facials, microneedling, massages, and makeup delivered to your door in Roodepoort, Randburg, and Greater Johannesburg." />
-        <link rel="canonical" href="https://pgma.co.za/" />
+        <link rel="canonical" href="https://pgma-site.vercel.app/" />
         <meta property="og:title" content="Purely Graced Aesthetics | Mobile Beauty in Johannesburg" />
         <meta property="og:description" content="Professional facials, microneedling, massages, and make-up delivered to your door in Greater Johannesburg." />
-        <meta property="og:url" content="https://pgma.co.za/" />
+        <meta property="og:url" content="https://pgma-site.vercel.app/" />
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'HealthAndBeautyBusiness',
             name: 'Purely Graced Aesthetics',
             alternateName: 'PGA',
-            url: 'https://pgma.co.za/',
+            url: 'https://pgma-site.vercel.app/',
             telephone: '+27635149482',
-            image: 'https://pgma.co.za/assets/home-hero.png',
+            image: 'https://pgma-site.vercel.app/assets/home-hero.png',
             priceRange: 'R50–R600',
             address: {
               '@type': 'PostalAddress',
