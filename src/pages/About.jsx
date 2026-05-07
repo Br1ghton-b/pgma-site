@@ -87,14 +87,6 @@ export default function About() {
       {/* Editorial story split */}
       <section className="section about-story">
         <div className="container about-story-grid">
-          <div className="about-story-media">
-            <img
-              src={img(aboutPhotoId, { w: 900 })}
-              alt="Our professional aesthetician preparing for a treatment"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
           <div className="about-story-text">
             <span className="eyebrow">Our story</span>
             <h2>
@@ -116,54 +108,126 @@ export default function About() {
               — Refreshed. Relaxed. Rejuvenated.
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* Founder */}
-      <section className="section section-alt about-founder">
-        <div className="container about-founder-grid">
-          <div className="about-founder-media">
+          <div className="about-story-media">
             <img
-              src="/assets/founder-marcia.jpg"
-              alt="Marcia Bila-Babuyile, Founder of Purely Graced Aesthetics"
+              src={img(aboutPhotoId, { w: 900 })}
+              alt="Our professional aesthetician preparing for a treatment"
               loading="lazy"
               decoding="async"
             />
           </div>
-          <div className="about-founder-text">
-            <span className="eyebrow">Meet the founder</span>
+        </div>
+      </section>
+
+      {/* Team */}
+      <section className="section section-alt about-founder">
+        <div className="container">
+          <div className="about-team-head">
+            <span className="eyebrow">Meet the team</span>
             <h2>
-              Marcia
-              <span className="hero-italic"> Bila-Babuyile.</span>
+              The hands behind
+              <span className="hero-italic"> your treatment.</span>
             </h2>
-            <p className="about-founder-role">
-              Somatologist &amp; Aesthetician · 8+ years clinical experience
-            </p>
             <p>
-              Marcia founded Purely Graced Aesthetics to deliver
-              personalised, science-backed treatments that enhance natural
-              beauty and promote long-term skin health — without the
-              pressure of a salon waiting room.
+              Specialists for the work that deserves a dedicated touch —
+              led by Marcia, supported by trusted talent across the menu.
             </p>
-            <p>
-              She also leads at <strong>W.ink Beauty Salon &amp; Spa</strong>,
-              the in-house practice at Madge Wallace International College
-              of Skincare &amp; Body Therapy, where she oversees premium
-              services from bespoke facials and chemical peels to holistic
-              aromatherapy and body treatments.
-            </p>
-            <p>
-              Trained in health sciences at the Tshwane University of
-              Technology and aligned with ITEC and CIDESCO global standards,
-              her practice pairs clinical precision with the calm of a
-              private spa.
-            </p>
-            <ul className="about-founder-credentials">
-              <li>ITEC certified</li>
-              <li>CIDESCO accredited</li>
-              <li>Somatology — TUT</li>
-              <li>Lead Aesthetician, W.ink Beauty Salon &amp; Spa</li>
-            </ul>
+          </div>
+
+          {/* Marcia — Founder */}
+          <div className="about-founder-grid">
+            <div className="about-founder-media">
+              <img
+                src="/assets/founder-marcia.jpg"
+                alt="Marcia Bila-Babuyile, Founder of Purely Graced Aesthetics"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div className="about-founder-text">
+              <span className="eyebrow">Founder</span>
+              <h3>
+                Marcia
+                <span className="hero-italic"> Bila-Babuyile.</span>
+              </h3>
+              <p className="about-founder-role">
+                Somatologist &amp; Aesthetician · 10+ years clinical experience
+              </p>
+              <p>
+                Marcia founded Purely Graced Aesthetics to deliver
+                personalised, science-backed treatments that enhance
+                natural beauty and promote long-term skin health — without
+                the pressure of a salon waiting room.
+              </p>
+              <p>
+                She also leads at <strong>W.ink Beauty Salon &amp; Spa</strong>,
+                the in-house practice at Madge Wallace International College
+                of Skincare &amp; Body Therapy, where she oversees premium
+                services from bespoke facials and chemical peels to holistic
+                aromatherapy and body treatments.
+              </p>
+              <p>
+                Trained in health sciences at the Tshwane University of
+                Technology and aligned with ITEC and CIDESCO global
+                standards, her practice pairs clinical precision with the
+                calm of a private spa.
+              </p>
+              <ul className="about-founder-credentials">
+                <li>ITEC certified</li>
+                <li>CIDESCO accredited</li>
+                <li>Somatology — TUT</li>
+                <li>Lead Aesthetician, W.ink Beauty Salon &amp; Spa</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Pride — Nail Architect */}
+          <div className="about-founder-grid about-founder-grid-reverse">
+            <div className="about-founder-media">
+              <img
+                src="/assets/founder-pride.jpg"
+                alt="Pride Fusire, Nail Architect at Purely Graced Aesthetics"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div className="about-founder-text">
+              <span className="eyebrow">Nail specialist</span>
+              <h3>
+                Pride
+                <span className="hero-italic"> Fusire.</span>
+              </h3>
+              <p className="about-founder-role">
+                Nail Architect · 10+ years industry experience
+              </p>
+              <p>
+                Pride is a nail architect with over a decade of artistry
+                across some of South Africa's most respected studios. From
+                a clean classic French to soft-gel sculpting and full sets,
+                her work pairs precision craft with a calm, unhurried
+                bedside manner.
+              </p>
+              <p>
+                Her career spans senior chairs at <strong>Sorbet</strong>
+                {' '}and <strong>Perfectly Polished</strong>, alongside
+                private contracts with boutique nail studios across
+                Johannesburg. That breadth shows up in her work — she has
+                seen and corrected nearly every nail concern, from weak
+                natural plates to lifted gel and overworked cuticles.
+              </p>
+              <p>
+                At PGA she leads every manicure and pedicure on the menu,
+                bringing a salon-grade kit to your home: sterile tools,
+                kinder removal techniques, and finishes built to hold their
+                shape long after the appointment is done.
+              </p>
+              <ul className="about-founder-credentials">
+                <li>Nail Architect</li>
+                <li>10+ Years Industry</li>
+                <li>Sorbet alumna</li>
+                <li>Perfectly Polished alumna</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>

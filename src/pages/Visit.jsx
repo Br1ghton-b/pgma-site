@@ -38,6 +38,10 @@ const faq = [
     body: 'No — we bring the complete studio: bed, linens, towels, products, music, warm blankets.',
   },
   {
+    q: 'Are there travel fees?',
+    body: 'House calls within Roodepoort and Randburg are billed at Uber-equivalent rates from our base. For visits beyond a 10 km radius — or where the treatment total is below R550 — the travel fee is doubled. We always confirm the exact figure on WhatsApp before your booking is set.',
+  },
+  {
     q: 'How do payments work?',
     body: 'We accept EFT, SnapScan, and cash. Payment is taken after treatment unless it is a gift voucher (pre-paid).',
   },
