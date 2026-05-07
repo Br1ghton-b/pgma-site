@@ -2,6 +2,8 @@ import { useMemo, useState } from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import PageHero from '../components/PageHero'
+import { getGuideForService } from '../data/education'
+import { generateAftercarePDF, generateBookingSummaryPDF } from '../utils/pdfGenerator'
 import {
   categories,
   formatPrice,
@@ -650,6 +652,40 @@ export default function Booking() {
                     WhatsApp opened in a new tab — send the message and
                     we'll confirm your slot shortly.
                   </p>
+                  
+                  {selections.length > 0 && (
+                    <div className="booking-success-downloads">
+                      <p>
+                        While you wait, download your booking summary —
+                        aftercare for every treatment is included.
+                      </p>
+                      <div className="booking-success-btns">
+                        <button
+                          type="button"
+                          className="btn btn-outline btn-sm"
+                          onClick={() => generateBookingSummaryPDF({ selections, form, subtotal, totalMinutes })}
+                        >
+                          Booking Summary + Aftercare (PDF) ↓
+                        </button>
+                        {selections
+                          .map(s => getGuideForService(s.name))
+                          .filter(Boolean)
+                          .filter((v, i, a) => a.findIndex(t => t.id === v.id) === i)
+                          .map(guide => (
+                            <button
+                              key={guide.id}
+                              type="button"
+                              className="btn btn-ghost btn-sm"
+                              onClick={() => generateAftercarePDF(guide)}
+                            >
+                              {guide.title} (PDF) ↓
+                            </button>
+                          ))
+                        }
+                      </div>
+                    </div>
+                  )}
+
                   {rebookInfo && (
                     <p className="booking-rebook">
                       After your visit we'll suggest rebooking your{' '}

@@ -21,7 +21,7 @@ export default function Logo({ variant = 'dark', compact = false }) {
       aria-label="Purely Graced Aesthetics"
     >
       <svg
-        viewBox="0 0 400 220"
+        viewBox="-15 0 430 220"
         className="logo-svg"
         role="img"
         aria-hidden="true"

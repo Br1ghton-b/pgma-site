@@ -11,7 +11,7 @@
 /* Full lockup — SVG scales responsively via container width */
 .logo-full {
   display: inline-block;
-  max-width: 380px;
+  max-width: 408px;
   width: 100%;
 }
 
@@ -19,6 +19,7 @@
   display: block;
   width: 100%;
   height: auto;
+  overflow: visible;
 }
 
 .logo-pga {
