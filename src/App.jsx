@@ -12,6 +12,7 @@ import Concerns from './pages/Concerns'
 import Education from './pages/Education'
 import NotFound from './pages/NotFound'
 import { HelmetProvider } from 'react-helmet-async'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+      <SpeedInsights />
     </HelmetProvider>
   )
 }
