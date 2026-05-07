@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://pgma.co.za/</loc>
+    <loc>https://pgma-site.vercel.app/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://pgma.co.za/services</loc>
+    <loc>https://pgma-site.vercel.app/services</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://pgma.co.za/booking</loc>
+    <loc>https://pgma-site.vercel.app/booking</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://pgma.co.za/about</loc>
+    <loc>https://pgma-site.vercel.app/about</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://pgma.co.za/concerns</loc>
+    <loc>https://pgma-site.vercel.app/concerns</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://pgma.co.za/gifting</loc>
+    <loc>https://pgma-site.vercel.app/gifting</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://pgma.co.za/reviews</loc>
+    <loc>https://pgma-site.vercel.app/reviews</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://pgma.co.za/visit</loc>
+    <loc>https://pgma-site.vercel.app/visit</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://pgma.co.za/contact</loc>
+    <loc>https://pgma-site.vercel.app/contact</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>

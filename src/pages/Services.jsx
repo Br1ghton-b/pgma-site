@@ -43,10 +43,10 @@ export default function Services() {
           name="description"
           content="Full menu of mobile facials, microneedling, peels, massages, waxing, nails and make-up — with transparent ZAR pricing. Booked to your door across Roodepoort, Randburg and Greater Johannesburg."
         />
-        <link rel="canonical" href="https://pgma.co.za/services" />
+        <link rel="canonical" href="https://pgma-site.vercel.app/services" />
         <meta property="og:title" content="Services & Pricing | Purely Graced Aesthetics" />
         <meta property="og:description" content="Mobile facials, aesthetics, massage, waxing, nails and make-up — transparent pricing, booked to your door." />
-        <meta property="og:url" content="https://pgma.co.za/services" />
+        <meta property="og:url" content="https://pgma-site.vercel.app/services" />
       </Helmet>
 
       <PageHero
