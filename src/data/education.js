@@ -27,5 +27,40 @@ export const educationGuides = {
       dont: ['No exfoliating', 'No hot showers']
     },
     seoDescription: 'Simple aftercare steps for your brightening facial.'
+  },
+  'swedish': {
+    id: 'swedish',
+    title: 'Swedish Massage Aftercare',
+    intro: 'You have just had a relaxing treatment. To keep the benefits going, follow these simple post-massage steps.',
+    steps: [
+      { title: 'Hydration', body: 'Drink plenty of water to help flush out any toxins released during the massage.' },
+      { title: 'Rest', body: 'Avoid strenuous activity for the next 12-24 hours. Let your muscles recover.' },
+      { title: 'Warmth', body: 'A warm bath or shower can help further relax your muscles, but avoid extremely hot water.' }
+    ],
+    doDonts: {
+      do: ['Drink herbal tea', 'Stretch gently', 'Get a good night\'s sleep'],
+      dont: ['No alcohol for 24 hours', 'No heavy lifting', 'No high-impact exercise']
+    },
+    seoDescription: 'Post-massage care to maintain relaxation and recovery.'
+  },
+  'gel-polish': {
+    id: 'gel-polish',
+    title: 'Gel Polish Aftercare',
+    intro: 'Your nails look perfect. Help them stay that way for longer with these maintenance tips.',
+    steps: [
+      { title: 'Initial care', body: 'Avoid very hot water for the first 2 hours after application.' },
+      { title: 'Daily maintenance', body: 'Apply cuticle oil every evening to keep the nail bed hydrated.' },
+      { title: 'Protection', body: 'Wear gloves when doing household chores or gardening to prevent chipping.' }
+    ],
+    doDonts: {
+      do: ['Use cuticle oil', 'Wear gloves for cleaning'],
+      dont: ['No picking or peeling', 'No using nails as tools']
+    },
+    seoDescription: 'How to maintain your gel polish for maximum longevity.'
   }
+}
+
+export function getGuideForService(serviceName) {
+  const id = (serviceName || '').toLowerCase().replace(/\s+/g, '-')
+  return educationGuides[id] || null
 }
