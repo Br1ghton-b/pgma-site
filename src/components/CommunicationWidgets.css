@@ -33,8 +33,3 @@
   display: block;
 }
 
-@media (max-width: 767px) {
-  .whatsapp-widget {
-    bottom: 88px;
-  }
-}

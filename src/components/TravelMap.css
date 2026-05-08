@@ -45,6 +45,54 @@
   justify-content: center;
 }
 
+.travel-checker {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--cream-deep);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--rose-gold);
+}
+
+.travel-checker label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  color: var(--text-soft);
+}
+
+.travel-checker input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border);
+  background: var(--cream);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+}
+
+.travel-status {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.travel-status p {
+  margin: 0;
+}
+
+.travel-status-included {
+  color: #3aa65f;
+}
+
+.travel-status-ask {
+  color: var(--rose-gold-deep);
+}
+
+.travel-status a {
+  text-decoration: underline;
+  color: inherit;
+}
+
 .map-placeholder {
   position: relative;
   width: 300px;

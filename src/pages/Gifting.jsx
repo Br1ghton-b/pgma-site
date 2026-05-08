@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import PageHero from '../components/PageHero'
+import { generateGiftVoucherPDF } from '../utils/pdfGenerator'
 import {
   giftBundles,
   bundlePrice,
@@ -85,124 +86,7 @@ export default function Gifting() {
     }
     setPdfState({ loading: true, error: '' })
     try {
-      const { default: jsPDF } = await import('jspdf')
-      const doc = new jsPDF({
-        orientation: 'landscape',
-        unit: 'mm',
-        format: 'a5', // 210 × 148 mm landscape
-      })
-      const W = 210
-      const H = 148
-
-      // Cream background
-      doc.setFillColor(252, 248, 251)
-      doc.rect(0, 0, W, H, 'F')
-
-      // Outer pink border
-      doc.setDrawColor(236, 65, 133)
-      doc.setLineWidth(0.8)
-      doc.rect(6, 6, W - 12, H - 12)
-
-      // Inner thin border
-      doc.setLineWidth(0.2)
-      doc.rect(9, 9, W - 18, H - 18)
-
-      // "Purely Graced" cursive header
-      doc.setFont('times', 'italic')
-      doc.setFontSize(28)
-      doc.setTextColor(26, 20, 24)
-      doc.text('Purely Graced', W / 2, 30, { align: 'center' })
-
-      // "AESTHETICS" subline
-      doc.setFont('helvetica', 'bold')
-      doc.setFontSize(8)
-      doc.setCharSpace(2)
-      doc.setTextColor(26, 20, 24)
-      doc.text('AESTHETICS', W / 2, 37, { align: 'center' })
-      doc.setCharSpace(0)
-
-      // Decorative hairline
-      doc.setDrawColor(236, 65, 133)
-      doc.setLineWidth(0.3)
-      doc.line(W / 2 - 14, 43, W / 2 + 14, 43)
-
-      // "GIFT VOUCHER" label
-      doc.setFont('helvetica', 'normal')
-      doc.setFontSize(9)
-      doc.setCharSpace(3)
-      doc.setTextColor(199, 33, 106)
-      doc.text('GIFT VOUCHER', W / 2, 51, { align: 'center' })
-      doc.setCharSpace(0)
-
-      // "To:" recipient
-      doc.setFont('helvetica', 'normal')
-      doc.setFontSize(10)
-      doc.setTextColor(95, 77, 90)
-      doc.text(`To: ${voucher.recipient}`, W / 2, 63, { align: 'center' })
-
-      // Amount in big italic serif
-      doc.setFont('times', 'italic')
-      doc.setFontSize(54)
-      doc.setTextColor(26, 20, 24)
-      doc.text(`R ${amount}`, W / 2, 93, { align: 'center' })
-
-      // Message (or default)
-      if (voucher.message) {
-        doc.setFont('times', 'italic')
-        doc.setFontSize(11)
-        doc.setTextColor(26, 20, 24)
-        const wrapped = doc.splitTextToSize(
-          `"${voucher.message}"`,
-          W - 60
-        )
-        doc.text(wrapped, W / 2, 106, { align: 'center' })
-      } else {
-        doc.setFont('times', 'italic')
-        doc.setFontSize(10)
-        doc.setTextColor(140, 122, 136)
-        doc.text(
-          'Redeemable against any PGA treatment.',
-          W / 2,
-          106,
-          { align: 'center' }
-        )
-      }
-
-      // "With love, [from]"
-      if (voucher.from) {
-        doc.setFont('times', 'italic')
-        doc.setFontSize(10)
-        doc.setTextColor(95, 77, 90)
-        doc.text(`— with love, ${voucher.from}`, W / 2, 122, {
-          align: 'center',
-        })
-      }
-
-      // Footer — voucher code + contact
-      doc.setFont('helvetica', 'normal')
-      doc.setFontSize(7)
-      doc.setCharSpace(1.2)
-      doc.setTextColor(140, 122, 136)
-      doc.text(
-        `CODE ${code}   ·   +27 63 514 9482   ·   @purely_graced_aesthetics`,
-        W / 2,
-        H - 14,
-        { align: 'center' }
-      )
-      doc.setCharSpace(0)
-
-      // Redemption note
-      doc.setFont('helvetica', 'italic')
-      doc.setFontSize(6.5)
-      doc.setTextColor(160, 144, 156)
-      doc.text(
-        'Voucher activates on payment confirmation. Valid for 12 months from issue date.',
-        W / 2,
-        H - 10,
-        { align: 'center' }
-      )
-
-      doc.save(`PGA-gift-voucher-${code}.pdf`)
+      generateGiftVoucherPDF({ ...voucher, amount, code })
       setPdfState({ loading: false, error: '' })
     } catch (err) {
       setPdfState({

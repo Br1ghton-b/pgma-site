@@ -35,7 +35,7 @@ export default function Navbar() {
   }, [open])
 
   return (
-    <header className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
+    <header className={`navbar ${scrolled ? 'navbar-scrolled' : ''} ${open ? 'navbar-open' : ''}`}>
       <div className="container navbar-inner">
         <Link to="/" className="navbar-brand" aria-label="PGA home">
           <Logo compact />

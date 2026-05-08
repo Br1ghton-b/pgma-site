@@ -14,6 +14,12 @@
   background: rgba(255, 255, 255, 0.92);
 }
 
+.navbar-open {
+  background: #ffffff !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
 .navbar-inner {
   display: flex;
   align-items: center;
@@ -97,7 +103,7 @@
   position: fixed;
   inset: 0;
   top: 72px;
-  background: var(--cream);
+  background: #ffffff;
   transform: translateY(-8px);
   opacity: 0;
   pointer-events: none;
@@ -118,6 +124,7 @@
   padding: 24px;
   max-width: var(--max-w);
   margin: 0 auto;
+  background: #ffffff;
 }
 
 .drawer-link {
