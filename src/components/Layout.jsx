@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import Navbar from './Navbar'
 import Footer from './Footer'
-import StickyCTA from './StickyCTA'
 import CommunicationWidgets from './CommunicationWidgets'
 import { motion, AnimatePresence } from 'framer-motion'
 import '../App.css'
@@ -30,7 +29,6 @@ export default function Layout() {
           </motion.div>
         </AnimatePresence>
       </main>
-      <StickyCTA />
       <CommunicationWidgets />
       <Footer />
     </>

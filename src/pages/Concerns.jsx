@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { motion, AnimatePresence } from 'framer-motion'
 import PageHero from '../components/PageHero'
+import { generateSkinRecommendationPDF } from '../utils/pdfGenerator'
 import {
   skinConcerns,
   categories,
@@ -193,6 +194,15 @@ export default function Concerns() {
                 <div className="results-actions">
                   <button className="btn btn-ghost" onClick={resetQuiz}>
                     Start over
+                  </button>
+                  <button 
+                    className="btn btn-outline"
+                    onClick={() => generateSkinRecommendationPDF({ 
+                      goal: steps[0].options.find(o => o.value === answers.goal)?.label, 
+                      recommendations 
+                    })}
+                  >
+                    Download Plan (PDF) ↓
                   </button>
                   <Link to="/services" className="btn btn-primary">
                     View full menu

@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { educationGuides } from '../data/education'
 import PageHero from '../components/PageHero'
+import { generateAftercarePDF } from '../utils/pdfGenerator'
 import './Education.css'
 
 export default function Education() {
@@ -34,6 +35,18 @@ export default function Education() {
 
       <section className="section education-guide">
         <div className="container">
+          <div className="guide-actions">
+            <button 
+              className="btn btn-primary"
+              onClick={() => generateAftercarePDF(guide)}
+            >
+              Download PDF Guide ↓
+            </button>
+            <Link to="/services" className="btn btn-outline">
+              Back to Services
+            </Link>
+          </div>
+
           <div className="guide-content">
             {guide.steps.map((step, i) => (
               <div key={i} className="guide-step">

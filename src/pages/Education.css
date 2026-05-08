@@ -1,6 +1,14 @@
 .education-guide {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+}
+
+.guide-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--cream-deep);
 }
 
 .guide-step {

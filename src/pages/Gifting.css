@@ -143,6 +143,11 @@
   grid-template-columns: 1fr 1.2fr;
   gap: 40px;
   align-items: start;
+  min-width: 0;
+}
+
+.gifting-voucher-grid > * {
+  min-width: 0;
 }
 
 .gifting-voucher-grid p {
@@ -171,10 +176,19 @@
   background: var(--cream);
   border: 1px solid var(--border);
   border-radius: 4px;
-  padding: 32px;
+  padding: clamp(16px, 4vw, 32px);
   display: flex;
   flex-direction: column;
   gap: 24px;
+  width: 100%;
+  min-width: 0;
+}
+
+.gifting-voucher-form fieldset,
+.gifting-voucher-form input,
+.gifting-voucher-form textarea {
+  min-width: 0;
+  max-width: 100%;
 }
 
 .gifting-voucher-form fieldset {
@@ -327,15 +341,30 @@
 
 .gifting-actions {
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  align-items: center;
+  gap: 12px;
+  flex-direction: column;
 }
 
 .gifting-actions .btn {
-  flex: 1 1 auto;
-  min-width: 180px;
-  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  white-space: normal;
+  line-height: 1.25;
+  padding: 14px 18px;
+}
+
+@media (min-width: 500px) {
+  .gifting-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .gifting-actions .btn {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 180px;
+    white-space: nowrap;
+    padding: 15px 32px;
+  }
 }
 
 .gifting-disclaimer {
